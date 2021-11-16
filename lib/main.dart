@@ -3,8 +3,7 @@ import 'package:ncmb/ncmb.dart';
 
 void main() {
   // NCMBを初期化
-  NCMB('cfbfa63791b4fa2d3d81dfaa4af96c0b696d9d4c4de16285fb54b640db6f140a',
-      '24178b22dce79ac65631163fff1d515b2de00fdd4a1a3f375e443f047a97fb34');
+  NCMB('YOUR_APPLICATION_KEY', 'YOUR_CLIENT_KEY');
   // 最初に表示するWidget
   runApp(MyTodoApp());
 }

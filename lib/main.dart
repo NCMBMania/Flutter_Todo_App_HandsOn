@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ncmb/ncmb.dart';
 
 void main() {
-  // NCMBを初期化
-  NCMB('YOUR_APPLICATION_KEY', 'YOUR_CLIENT_KEY');
+  // 1. NCMBを初期化
+
   // 最初に表示するWidget
   runApp(MyTodoApp());
 }
@@ -46,16 +46,7 @@ class _TodoListPageState extends State<TodoListPage> {
   }
 
   // NCMBから既存のTodoリストを取得する処理
-  void getAllTask() async {
-    // Todoクラス（DBで言うテーブル相当）を検索するクエリーオブジェクト
-    var query = NCMBQuery('Todo');
-    // データを取得
-    var items = await query.fetchAll();
-    // データを適用
-    setState(() {
-      todoList = items;
-    });
-  }
+  void getAllTask() async {}
 
   // 画面構築
   @override
@@ -134,7 +125,7 @@ class _TodoListPageState extends State<TodoListPage> {
             onDismissed: (direction) {
               // スワイプされた要素をデータから削除する
               setState(() {
-                todoList[index].delete();
+                // 4. タスクを削除する
                 todoList.removeAt(index);
               });
               // Snackbarを表示する
@@ -178,9 +169,7 @@ class _TodoPageState extends State<TodoPage> {
           IconButton(
             icon: Icon(Icons.save),
             onPressed: () async {
-              // 保存処理
-              widget.todo.set('body', _text);
-              await widget.todo.save();
+              // 2. 保存処理
               // 前の画面に戻る
               Navigator.of(context).pop(widget.todo);
             },
